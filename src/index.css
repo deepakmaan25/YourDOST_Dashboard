@@ -1,41 +1,216 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
-@theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+:root {
 
-  --color-yd-bg: #F5F4F0;
-  --color-yd-surface: #FFFFFF;
-  --color-yd-surface2: #F0EEE9;
-  --color-yd-surface3: #E8E6E0;
-  
-  --color-yd-text-primary: #1A1A18;
-  --color-yd-text-secondary: #6B6B65;
-  --color-yd-text-tertiary: #9E9E96;
-  
-  --color-yd-border: rgba(0,0,0,0.08);
-  --color-yd-border-med: rgba(0,0,0,0.13);
+  /* Fonts */
+  --font-primary: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
 
-  --color-yd-teal: #1D9E75;
-  --color-yd-teal-light: #E1F5EE;
-  --color-yd-teal-mid: #9FE1CB;
-  
-  --color-yd-blue: #185FA5;
-  --color-yd-blue-light: #E6F1FB;
-  --color-yd-blue-mid: #378ADD;
-  
-  --color-yd-amber: #EF9F27;
-  --color-yd-amber-light: #FAEEDA;
-  
-  --color-yd-red: #E24B4A;
-  --color-yd-red-light: #FCEBEB;
-  --color-yd-red-dark: #A32D2D;
-  
-  --color-yd-purple: #7F77DD;
-  --color-yd-purple-light: #EEEDFE;
-  
-  --color-yd-green: #639922;
-  --color-yd-green-light: #EAF3DE;
+  /* Page & surface */
+  --color-page-bg:   #F5F4F0;
+  --color-surface:   #FFFFFF;
+  --color-surface-2: #F0EEE9;
+
+  /* Borders */
+  --color-border:        rgba(0,0,0,0.08);
+  --color-border-medium: rgba(0,0,0,0.13);
+
+  /* Text */
+  --color-text-primary:   #1A1A18;
+  --color-text-secondary: #6B6B65;
+  --color-text-tertiary:  #9E9E96;
+
+  /* Teal — primary / wellness */
+  --teal-50:  #E1F5EE;
+  --teal-100: #9FE1CB;
+  --teal-200: #5DCAA5;
+  --teal-400: #1D9E75;
+  --teal-600: #0F6E56;
+  --teal-800: #085041;
+  --teal-900: #04342C;
+
+  /* Amber — warning / follow-up */
+  --amber-50:  #FAEEDA;
+  --amber-100: #FAC775;
+  --amber-200: #EF9F27;
+  --amber-400: #BA7517;
+  --amber-600: #854F0B;
+  --amber-800: #633806;
+  --amber-900: #412402;
+
+  /* Red — critical / error */
+  --red-50:  #FCEBEB;
+  --red-100: #F7C1C1;
+  --red-200: #F09595;
+  --red-400: #E24B4A;
+  --red-600: #A32D2D;
+  --red-800: #791F1F;
+  --red-900: #501313;
+
+  /* Blue — info / actions */
+  --blue-50:  #E6F1FB;
+  --blue-100: #B5D4F4;
+  --blue-200: #85B7EB;
+  --blue-400: #378ADD;
+  --blue-600: #185FA5;
+  --blue-800: #0C447C;
+  --blue-900: #042C53;
+
+  /* Purple — programs */
+  --purple-50:  #EEEDFE;
+  --purple-100: #CECBF6;
+  --purple-200: #AFA9EC;
+  --purple-400: #7F77DD;
+  --purple-600: #534AB7;
+  --purple-800: #3C3489;
+  --purple-900: #26215C;
+
+  /* Gray — neutral / text */
+  --gray-50:  #F5F4F0;
+  --gray-100: #E8E6E0;
+  --gray-200: #D0CEC6;
+  --gray-400: #9E9E96;
+  --gray-600: #6B6B65;
+  --gray-800: #3A3A38;
+  --gray-900: #1A1A18;
+
+  /* Spacing — 4pt grid */
+  --space-1:  2px;
+  --space-2:  4px;
+  --space-3:  8px;
+  --space-4:  10px;
+  --space-5:  12px;
+  --space-6:  16px;
+  --space-7:  20px;
+  --space-8:  24px;
+  --space-9:  32px;
+  --space-10: 48px;
+
+  /* Border radius */
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-xl:   16px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.06), 0 10px 24px rgba(0,0,0,0.08);
+
+  /* Priority dots */
+  --dot-critical: #E24B4A;
+  --dot-followup: #EF9F27;
+  --dot-nudge:    #1D9E75;
 }
+
+/* ============================================
+   Global resets using tokens
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-page-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography scale */
+.text-display { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
+.text-h1      { font-size: 22px; font-weight: 600; }
+.text-h2      { font-size: 18px; font-weight: 600; }
+.text-h3      { font-size: 15px; font-weight: 600; }
+.text-body    { font-size: 13px; font-weight: 400; line-height: 1.6; }
+.text-strong  { font-size: 13px; font-weight: 500; }
+.text-caption { font-size: 11px; font-weight: 400; }
+.text-label   { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.text-mono    { font-family: var(--font-mono); font-size: 11px; font-weight: 400; }
+
+/* Priority dot utility */
+.priority-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.priority-dot.critical { background: var(--dot-critical); }
+.priority-dot.followup { background: var(--dot-followup); }
+.priority-dot.nudge    { background: var(--dot-nudge); }
+
+/* Signal metric card */
+.signal-card {
+  background: var(--color-surface-2);
+  border-radius: var(--r-lg);
+  padding: var(--space-8);
+}
+.signal-card .value {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+.signal-card .label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+.signal-card .delta {
+  font-size: 11px;
+  margin-top: var(--space-2);
+}
+.delta.up   { color: var(--teal-600); }
+.delta.down { color: var(--red-600); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-primary  { background: var(--teal-400); color: #fff; }
+.btn-secondary { background: transparent; border: 1px solid var(--teal-400); color: var(--teal-600); }
+.btn-ghost    { background: transparent; border: 1px solid var(--color-border-medium); color: var(--color-text-primary); }
+
+/* Cards */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-8);
+}
+
+/* Tags / badges */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 500;
+}
+.tag-critical { background: var(--red-50);    color: var(--red-600); }
+.tag-followup { background: var(--amber-50);  color: var(--amber-600); }
+.tag-nudge    { background: var(--teal-50);   color: var(--teal-600); }
+.tag-info     { background: var(--blue-50);   color: var(--blue-600); }
+.tag-program  { background: var(--purple-50); color: var(--purple-600); }
