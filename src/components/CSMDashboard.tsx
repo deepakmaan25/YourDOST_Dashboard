@@ -198,9 +198,9 @@ export default function CSMDashboard() {
 
   const getTagStyle = (priority: string) => {
     switch(priority) {
-      case 'critical': return 'bg-yd-red-light text-yd-red-dark';
-      case 'followup': return 'bg-yd-amber-light text-[#854F0B]';
-      case 'nudge': return 'bg-yd-green-light text-[#3B6D11]';
+      case 'critical': return 'bg-[#FCEBEB] text-[#A32D2D]';
+      case 'followup': return 'bg-[#FAEEDA] text-[#854F0B]';
+      case 'nudge': return 'bg-[#E1F5EE] text-[#0F6E56]';
       default: return 'bg-gray-100 text-gray-700';
     }
   };
@@ -302,7 +302,7 @@ export default function CSMDashboard() {
           {/* Signals Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-[8px]">
             {selectedAccount.signals.map((signal, idx) => (
-              <div key={idx} className="bg-yd-surface2 rounded-[6px] px-[12px] py-[10px]">
+              <div key={idx} className="bg-[#F0EEE9] rounded-[6px] px-[12px] py-[10px]">
                 <div className="text-[9px] uppercase tracking-[0.05em] text-yd-text-secondary font-mono">{signal.label}</div>
                 <div className="text-[22px] font-semibold text-yd-text-primary mt-[2px]">{signal.value}</div>
                 <div className={clsx(

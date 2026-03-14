@@ -8,7 +8,7 @@ import CSMDashboard from './components/CSMDashboard';
 
 export default function App() {
   return (
-    <div className="h-screen w-full bg-slate-50 overflow-hidden">
+    <div className="h-screen w-full bg-[#F5F4F0] overflow-hidden">
       <CSMDashboard />
     </div>
   );
